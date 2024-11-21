@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="./assets/icon/icon-taste-time.ico" />
+    <!-- Bootstrap icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <link rel="stylesheet" href="./assets/css/main.css">
+    <title>Taste Time</title>
+
+</head>
+
+<body>
+    <?php require_once 'header.php'; ?>
+    <section class="py-5">
+        <div class="container px-4 px-lg-5 my-5">
+            <div class="row gx-4 gx-lg-5 align-items-center">
+                <div class="col-md-6 mx-auto">
+                    <h1 class="text-center mb-4 fw-bold">Tạo Tài Khoản</h1>
+                    <!-- Hiển thị thông báo lỗi hoặc thành công -->
+                    <?php if (isset($_GET['error'])): ?>
+                        <div class="alert alert-danger" role="alert">
+                            <?php echo htmlspecialchars($_GET['error']); ?>
+                        </div>
+                    <?php elseif (isset($_GET['success'])): ?>
+                        <div class="alert alert-success" role="alert">
+                            <?php echo htmlspecialchars($_GET['success']); ?>
+                        </div>
+                    <?php endif; ?>
+                    <form action="register.php" method="POST" class="bg-light p-4 rounded shadow">
+                        <div class="mb-3">
+                            <label class="form-label">Họ Và Tên</label>
+                            <input type="text" name="username" class="form-control rounded-pill" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Email</label>
+                            <input type="email" name="email" class="form-control rounded-pill" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Mật Khẩu</label>
+                            <input type="password" name="password" class="form-control rounded-pill " required>
+                        </div>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-outline-dark rounded-pill fw-bold">Tạo</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <?php require_once 'footer.php'; ?>
+</body>
+
+</html>
